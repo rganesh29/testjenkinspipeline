@@ -16,12 +16,18 @@ before_script:
 
 init:
   stage: init
+  tags:
+    - run-terraform
   script:
+    - echo "This job will use the runner configured for the run-terraform tag"
     - terraform init
 
 plan:
   stage: plan
+  tags:
+    - run-terraform
   script:
+    - echo "This job will use the runner configured for the run-terraform tag"
     - terraform plan -var-file=dev.tfvars
   artifacts:
     paths:
@@ -29,7 +35,10 @@ plan:
 
 apply:
   stage: apply
+  tags:
+    - run-terraform
   script:
+    - echo "This job will use the runner configured for the run-terraform tag"
     - terraform apply -var-file=dev.tfvars
     
     
