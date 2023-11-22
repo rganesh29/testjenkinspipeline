@@ -1,6 +1,3 @@
-provider "aws" {
-  region = var.region
-}
  
 resource "aws_instance" "logic1" {
   ami           = var.ami_id
