@@ -1,0 +1,34 @@
+stages:
+  - init
+  - plan
+  - apply
+
+variables:
+  TF_VERSION: "1.0.9"  # Define the Terraform version you want to install
+
+before_script:
+  - apk add --update --no-cache curl unzip  # Install necessary tools (for Alpine-based images)
+  - curl -fsSL "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip" -o terraform.zip
+  - unzip terraform.zip
+  - chmod +x terraform
+  - mv terraform /usr/local/bin/terraform
+  - terraform --version  # Verify Terraform installation
+
+init:
+  stage: init
+  script:
+    - terraform init
+
+plan:
+  stage: plan
+  script:
+    - terraform plan -var-file=dev.tfvars
+  artifacts:
+    paths:
+      - tfplan.out
+
+apply:
+  stage: apply
+  script:
+    - terraform apply -var-file=dev.tfvars
+    
