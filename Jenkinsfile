@@ -18,6 +18,6 @@ node
     }
     stage('Monitor')
     {
-        echo "This is Application Logs Monitorinig using tool Splunk............."
+        echo "This is Application Logs Monitorinig using tool Splunktool............."
     }
 }
