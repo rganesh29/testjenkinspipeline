@@ -12,6 +12,7 @@ pipeline {
                 sh 'mvn clean deploy'
                  echo "----------- build complted ----------"
             }
+        }
         
     stage('SonarQube analysis') {
     environment {
@@ -23,6 +24,6 @@ pipeline {
         }
     }
     }
-        }
+        
     }
 }
