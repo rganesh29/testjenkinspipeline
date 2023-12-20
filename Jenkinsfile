@@ -1,3 +1,4 @@
+def registry = 'https://demoproject1.jfrog.io'
 pipeline {
     agent {
         node {
@@ -26,8 +27,10 @@ pipeline {
             def scannerHome = tool 'sonar-scanner';
         }
             steps {
+                echo "------------- SonarQube analysis Started -------------"
                 withSonarQubeEnv('sonar-server') { // If you have configured more than one global server connection, you can specify its name
                     sh "${scannerHome}/bin/sonar-scanner"
+                    echo "------------- SonarQube analysis completed -------------"
                 }
             }
         }
@@ -35,12 +38,14 @@ pipeline {
         stage("Quality Gate"){ //Added
             steps {
                 script {
+                    echo "------------- Quality Gate Started -------------"
                     timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
                     def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
                     if (qg.status != 'OK') {
                         error "Pipeline aborted due to quality gate failure: ${qg.status}"
                     }
                     }
+                    echo "------------- Quality Gate completed -------------"
                 }
             }
         }
