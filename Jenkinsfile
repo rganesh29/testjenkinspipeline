@@ -1,4 +1,7 @@
 def registry = 'https://demoproject1.jfrog.io'
+def imageName = 'demoproject1.jfrog.io/demo-docker-local/ttrend'
+def version   = '2.1.2' 
+
 pipeline {
     agent {
         node {
@@ -76,7 +79,7 @@ pipeline {
         }   
     }
 
-        stage(" Docker Build ") { //Added
+        stage(" Docker Build ") { 
         steps {
             script {
                 echo '<--------------- Docker Build Started --------------->'
@@ -86,7 +89,7 @@ pipeline {
         }
         }
 
-        stage (" Docker Publish "){ //Added
+        stage (" Docker Publish "){ 
         steps {
             script {
                 echo '<--------------- Docker Publish Started --------------->'  
