@@ -1,4 +1,4 @@
-def registry = 'https://demoproject1.jfrog.io'
+def registry = 'https://ganeshr.jfrog.io/'
 def imageName = 'demoproject1.jfrog.io/demo-docker-local/ttrend'
 def version   = '2.1.2' 
 
