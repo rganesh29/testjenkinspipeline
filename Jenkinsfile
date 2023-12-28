@@ -100,5 +100,14 @@ pipeline {
             }
         }
         }
+
+        stage("Deploy"){ //Added
+            steps {
+                script{
+                    sh './deploy.sh'
+                }
+            }
+        }
+        
     }
 }
