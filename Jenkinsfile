@@ -104,7 +104,7 @@ pipeline {
         stage("Deploy"){ //Added
             steps {
                 script{
-                    ./deploy.sh
+                    sh './deploy.sh'
                 }
             }
         }
