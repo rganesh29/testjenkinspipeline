@@ -104,7 +104,6 @@ pipeline {
         stage("Deploy"){ //Added
             steps {
                 script{
-                    sudo chmod 777 deploy.sh
                     sh deploy.sh
                 }
             }
