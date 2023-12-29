@@ -104,12 +104,12 @@ pipeline {
         stage("Deploy"){ //Added
             steps {
                 script{
-                    sh 'chmod +x deploy.sh'
-                    sh './deploy.sh'
-                    /*sh 'kubectl apply -f namespace.yaml'
+                    /*sh 'chmod +x deploy.sh'
+                    sh './deploy.sh'*/
+                    sh 'kubectl apply -f namespace.yaml'
                     sh 'kubectl apply -f secret.yaml'
                     sh 'kubectl apply -f deployment.yaml'
-                    sh 'kubectl apply -f service.yaml'*/
+                    sh 'kubectl apply -f service.yaml'
                 }
             }
         }
