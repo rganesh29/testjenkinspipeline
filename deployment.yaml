@@ -14,7 +14,7 @@ spec:
         app:  mtech-rtp
     spec:
       imagePullSecrets:
-      - name: jfrogcred
+      - name: docker
       containers:
       - name:  mtech-rtp
         image: ganeshr.jfrog.io/demo-docker/ttrend:2.1.2
