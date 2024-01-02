@@ -102,16 +102,26 @@ pipeline {
         }
         }
 
-        stage("Deploy"){ //Added
+        /*stage("Deploy"){ 
             steps {
                 script{
                     sh 'chmod 775 deploy.sh'
                     sh 'aws eks update-kubeconfig --region us-east-1 --name mtech-eks-01'
                     sh './deploy.sh'
-                    /*sh 'kubectl apply -f namespace.yaml'
+                    sh 'kubectl apply -f namespace.yaml'
                     sh 'kubectl apply -f secret.yaml'
                     sh 'kubectl apply -f deployment.yaml'
-                    sh 'kubectl apply -f service.yaml'*/
+                    sh 'kubectl apply -f service.yaml'
+                }
+            }
+        }*/
+
+        stage("Helm Deploy"){
+            steps {
+                script{
+                    echo '<--------------- Helm Deploy Started --------------->'
+                    sh 'helm install mtech-v1 mtech-0.1.0.tgz'
+                    echo '<--------------- Helm deploy Ends --------------->'
                 }
             }
         }
