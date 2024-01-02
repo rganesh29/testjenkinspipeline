@@ -105,6 +105,7 @@ pipeline {
             steps {
                 script{
                     sh 'chmod 775 deploy.sh'
+                    sh 'aws eks update-kubeconfig --region us-east-1 --name mtech-eks-01'
                     sh './deploy.sh'
                     /*sh 'kubectl apply -f namespace.yaml'
                     sh 'kubectl apply -f secret.yaml'
