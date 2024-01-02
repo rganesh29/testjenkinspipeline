@@ -120,7 +120,7 @@ pipeline {
             steps {
                 script{
                     echo '<--------------- Helm Deploy Started --------------->'
-                    sh 'helm install mtech-v1 mtech-0.1.0.tgz'
+                    sh 'helm install mtech-v1 mtech-v1.0-0.1.0.tgz'
                     echo '<--------------- Helm deploy Ends --------------->'
                 }
             }
