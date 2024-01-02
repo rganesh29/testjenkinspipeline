@@ -83,6 +83,7 @@ pipeline {
         steps {
             script {
                 echo '<--------------- Docker Build Started --------------->'
+                sh 'sudo chmod 755 /var/run/docker.sock'
                 app = docker.build(imageName+":"+version)
                 echo '<--------------- Docker Build Ends --------------->'
                 }
@@ -105,7 +106,6 @@ pipeline {
             steps {
                 script{
                     sh 'chmod 775 deploy.sh'
-                    sh 'sudo chmod 755 /var/run/docker.sock'
                     sh 'aws eks update-kubeconfig --region us-east-1 --name mtech-eks-01'
                     sh './deploy.sh'
                     /*sh 'kubectl apply -f namespace.yaml'
