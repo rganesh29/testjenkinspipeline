@@ -17,7 +17,7 @@ pipeline {
                  echo "----------- build complted ----------"
             }
         }
-        stage("unit-test"){
+        /*stage("unit-test"){
             steps {
                 echo "------------- Unit-test started -------------"
                 sh 'mvn surefire-report:report'
@@ -102,7 +102,7 @@ pipeline {
         }
         }
 
-        /*stage("Deploy"){ 
+        stage("Deploy"){ 
             steps {
                 script{
                     sh 'chmod 775 deploy.sh'
@@ -114,7 +114,7 @@ pipeline {
                     sh 'kubectl apply -f service.yaml'
                 }
             }
-        }*/
+        }
 
         stage("Helm Deploy"){
             steps {
@@ -124,7 +124,7 @@ pipeline {
                     echo '<--------------- Helm deploy Ends --------------->'
                 }
             }
-        }
+        }*/
         
     }
 }
