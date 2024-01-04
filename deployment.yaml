@@ -17,7 +17,7 @@ spec:
       - name: docker
       containers:
       - name:  mtech-rtp
-        image: ganeshr.jfrog.io/demo-docker/ttrend:2.1.3
+        image: ganeshr.jfrog.io/demo-docker/ttrend:2.1.2
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
