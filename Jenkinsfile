@@ -10,14 +10,14 @@ pipeline {
     }
 
     stages {
-        stage("build"){
+        stage("Maven-build"){
             steps {
-                 echo "----------- build started ----------"
+                 echo "----------- Maven build started ----------"
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
-                 echo "----------- build complted ----------"
+                 echo "----------- Maven build complted ----------"
             }
         }
-        /*stage("unit-test"){
+        stage("unit-test"){
             steps {
                 echo "------------- Unit-test started -------------"
                 sh 'mvn surefire-report:report'
@@ -25,7 +25,7 @@ pipeline {
             }
         }
         
-        stage('SonarQube analysis') {
+        /*stage('SonarQube analysis') {
         environment {
             def scannerHome = tool 'sonar-scanner';
         }
