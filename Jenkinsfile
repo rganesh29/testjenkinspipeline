@@ -79,7 +79,7 @@ pipeline {
         }   
     }
 
-        /*stage(" Docker Build ") { 
+        stage(" Docker Build ") { 
         steps {
             script {
                 echo '<--------------- Docker Build Started --------------->'
@@ -102,7 +102,7 @@ pipeline {
         }
         }
 
-        stage("Deploy"){ 
+        /*stage("Deploy"){ 
             steps {
                 script{
                     sh 'chmod 775 deploy.sh'
