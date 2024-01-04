@@ -53,7 +53,7 @@ pipeline {
             }
         }
 
-        stage("Jarfile Publishing in Jfrog Artifactory") { //Added
+        stage("Jarfile Publishing in Jfrog Artifactory") { 
         steps {
             script {
                     echo '<--------------- Jarfile Publishing in Jfrog Artifactory Started --------------->'
