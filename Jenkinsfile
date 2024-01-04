@@ -53,10 +53,10 @@ pipeline {
             }
         }
 
-        /*stage("Jar Publish") { //Added
+        stage("Jarfile Publishing in Jfrog Artifactory") { //Added
         steps {
             script {
-                    echo '<--------------- Jar Publish Started --------------->'
+                    echo '<--------------- Jarfile Publishing in Jfrog Artifactory Started --------------->'
                      def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifactory-cred"
                      def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                      def uploadSpec = """{
@@ -73,13 +73,13 @@ pipeline {
                      def buildInfo = server.upload(uploadSpec)
                      buildInfo.env.collect()
                      server.publishBuildInfo(buildInfo)
-                     echo '<--------------- Jar Publish Ended --------------->'  
+                     echo '<--------------- Jarfile Publishing in Jfrog Artifactory Ended --------------->'  
             
             }
         }   
     }
 
-        stage(" Docker Build ") { 
+        /*stage(" Docker Build ") { 
         steps {
             script {
                 echo '<--------------- Docker Build Started --------------->'
