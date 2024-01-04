@@ -25,7 +25,7 @@ pipeline {
             }
         }
         
-        /*stage('SonarQube analysis') {
+        stage('SonarQube analysis') {
         environment {
             def scannerHome = tool 'sonar-scanner';
         }
@@ -38,7 +38,7 @@ pipeline {
             }
         }
         
-        stage("Quality Gate"){ //Added
+        stage("Quality Gate"){ 
             steps {
                 script {
                     echo "------------- Quality Gate Started -------------"
@@ -53,7 +53,7 @@ pipeline {
             }
         }
 
-        stage("Jar Publish") { //Added
+        /*stage("Jar Publish") { //Added
         steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
