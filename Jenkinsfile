@@ -102,7 +102,7 @@ pipeline {
         }
         }
 
-        stage("Deploy"){ 
+        /*stage("Deploy"){ 
             steps {
                 script{
                     sh 'chmod 775 deploy.sh'
@@ -114,9 +114,9 @@ pipeline {
                     //sh 'kubectl apply -f service.yaml'
                 }
             }
-        }
+        }*/
 
-        /*stage("Helm Deploy"){
+        stage("Helm Deploy"){
             steps {
                 script{
                     echo '<--------------- Helm Deploy Started --------------->'
@@ -124,7 +124,7 @@ pipeline {
                     echo '<--------------- Helm deploy Ends --------------->'
                 }
             }
-        }*/
+        }
         
     }
 }
